@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text Input Lowercase Converter</title>
+	<style>
+		body {
+			background-color: #f7f7f7;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			color: #0c27c1;
+		}
+
+		h1 {
+			margin-top: 40px;
+			margin-bottom: 20px;
+			font-size: 32px;
+			font-weight: bold;
+			text-align: center;
+			color: #0c27c1;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 30px;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
+		}
+
+		label {
+			font-weight: bold;
+			margin-bottom: 10px;
+			color: #0c27c1;
+		}
+
+		input[type="text"] {
+			display: block;
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin-bottom: 20px;
+			width: 300px;
+			font-size: 16px;
+			line-height: 1.5;
+			box-sizing: border-box;
+			border-radius: 5px;
+			background-color: #f7f7f7;
+			color: #0c27c1;
+		}
+
+		button {
+			padding: 10px 20px;
+			background-color: #0c27c1;
+			border: none;
+			color: #fff;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.2s ease-in-out;
+		}
+
+		button:hover {
+			background-color: #c5c5c6;
+		}
+
+		.output-box {
+			display: block;
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin-top: 20px;
+			width: 300px;
+			font-size: 16px;
+			line-height: 1.5;
+			box-sizing: border-box;
+			border-radius: 5px;
+			background-color: #fff;
+			color: #333;
+		}
+	</style>
+</head>
+<body>
+	<h1>Text Converter</h1>
+	<form>
+		<label for="input">Enter text:</label>
+		<input type="text" id="input">
+		<button onclick="convertText(event)">Convert to Lowercase</button>
+		<div id="output" class="output-box"></div>
+	</form>
+
+	<script>
+		function convertText(event) {
+			event.preventDefault();
+
+			// Get the input element and output element
+			var inputElement = document.getElementById("input");
+			var outputElement = document.getElementById("output");
+
+			// Convert the input value to lowercase
+			var lowerCaseText = inputElement.value.toLowerCase();
+
+			// Capitalize the first letter of each sentence
+			var sentences = lowerCaseText.split('. ');
+			for (var i = 0; i < sentences.length; i++) {
+				sentences[i] = sentences[i].charAt(0).toUpperCase() + sentences[i].slice(1);
+			}
+			var capitalizedText = sentences.join('. ');
+
+			// Set the output value
+			outputElement.innerHTML = capitalizedText;
+		}
+	</script>
+
+	* If you notice any bugs please contact Bridget
+</html>
